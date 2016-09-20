@@ -40,5 +40,11 @@ describe("shoppingBasket", function(){
       assert.equal(0, basket.contents.length)
   });
 
+  it("should total basket item prices", function(){
+      basket.addItems(),
+      //console.log(basket.contents);//included for debug
+      assert.equal(10, basket.totalPrice())
+  });
+
 
 })

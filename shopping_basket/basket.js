@@ -6,19 +6,19 @@ var item1 ={
 
 var item2 ={
   description: "beans",
-  price: 0.79,
+  price: 2.00,
   includedInBogof: "Y"
 }
 
 var item3 ={
   description: "tangerines",
-  price: 1.50,
+  price: 4.00,
   includedInBogof: "Y"
 }
 
 var item4 ={
   description: "shampoo",
-  price: 2.98,
+  price: 3.00,
   includedInBogof: "N"
 }
 
@@ -35,19 +35,32 @@ var shoppingBasket={
 
   removeItems: function(toRemove){
     if(this.contents.length > 0){
-      for (var i = 0; i < this.contents.length; i++) {
-        var index = 0;
-        if(toRemove !== this.contents[i]){
-          index++
-        }
-        else
-          {this.contents.splice(index, 1)
-          }
-      };
+      // for (var i = 0; i < this.contents.length; i++) {
+      //   var index = 0;
+      //   if(toRemove !== this.contents[i]){
+      //     index++
+      //   }
+      //   else
+      //     {this.contents.splice(index, 1)
+      //     }
+      // };
       this.contents.pop()
     }
     else{ console.log("Your basket is empty! Fool!")}
+    },
+
+  totalPrice: function(){
+    var totalNoBogof = 0,
+    
+    for(var i = 0; i < this.contents.length; i++){
+      totalNoBogof =+ this.contents[i].price
     }
+    return totalNoBogof,
+  }
+
+
+
+
 
   };
 
