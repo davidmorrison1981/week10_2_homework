@@ -28,8 +28,8 @@ describe("shoppingBasket", function(){
   it("should remove items from basket", function(){
       basket.addItems(),
       console.log(basket.contents);
-      // toRemove = '{description: "potato", price: 1.00, includedInBogof: "N"}',
+      toRemove = '{description: "potato", price: 1.00, includedInBogof: "N"}',
       basket.removeItems(),
-      assert.deepEqual([], basket.contents)
+      assert.equal(3, basket.contents.length)
   });
 })
