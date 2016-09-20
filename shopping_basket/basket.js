@@ -24,13 +24,29 @@ var item4 ={
 
 var shoppingBasket={
   contents: [],
-  
-  addItems: function(item1,item2,item3,item4){
+ 
+  empty: function(){
+    this.contents = []
+  },
+
+  addItems: function(){
    this.contents.push(item1,item2,item3,item4)
     },
 
-  removeItems: function(){
-    this.contents.pop()
+  removeItems: function(toRemove){
+    if(this.contents.length > 0){
+      for (var i = 0; i < this.contents.length; i++) {
+        var index = 0;
+        if(toRemove !== this.contents[i]){
+          index++
+        }
+        else
+          {this.contents.splice(index, 1)
+          }
+      };
+      this.contents.pop()
+    }
+    else{ console.log("Your basket is empty! Fool!")}
     }
 
   };

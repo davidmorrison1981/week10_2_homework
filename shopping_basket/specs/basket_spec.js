@@ -3,21 +3,33 @@ var assert = require('assert');
 
 describe("shoppingBasket", function(){
 
-  beforeEach( function(){
-    basket.empty
+  beforeEach(function(){
+    basket.empty();
+    console.log(basket.contents);
   });
 
   it("should be empty", function(){
-    assert.equal("", basket.contents)
+    console.log(basket.contents);
+    assert.equal(0, basket.contents.length);
   });
 
   it("should add items", function(){
     basket.addItems(),
-    assert.notEqual("", basket.contents)
+    console.log(basket.contents);
+    assert.notEqual(0, basket.contents.length)
   });
 
-  it("should remove items", function(){
-       basket.removeItems(),
-    assert.equal("potato, 1.00, N", basket.contents)
+  it("should object to remove items when basket is empty", function(){
+      toRemove = "potato",
+      basket.removeItems(toRemove);
+      assert.deepEqual([], basket.contents)
+  });
+
+  it("should remove items from basket", function(){
+      basket.addItems(),
+      console.log(basket.contents);
+      // toRemove = '{description: "potato", price: 1.00, includedInBogof: "N"}',
+      basket.removeItems(),
+      assert.deepEqual([], basket.contents)
   });
 })
